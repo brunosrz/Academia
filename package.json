@@ -1,0 +1,19 @@
+{
+  "name": "academia-workspace",
+  "private": true,
+  "packageManager": "pnpm@12.11.2",
+  "scripts": {
+    "dev:gestao": "pnpm --filter @academia/gestao dev",
+    "dev:aluno": "pnpm --filter @academia/aluno dev",
+    "dev:api": "pnpm exec wrangler dev --config apps/api/wrangler.toml",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "3.9.10",
+    "wrangler": "4.156.0"
+  }
+}

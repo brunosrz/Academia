@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+target/
+.wrangler/
+.venv/
+.env
+.env.*
+!.env.example
+.dev.vars*
+coverage/

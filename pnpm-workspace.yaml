@@ -1,0 +1,7 @@
+packages:
+  - apps/gestao
+  - apps/aluno
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+  workerd: true

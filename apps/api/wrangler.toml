@@ -1,0 +1,7 @@
+name = "academia-api"
+main = "build/index.js"
+compatibility_date = "2026-10-23"
+workers_dev = false
+
+[build]
+command = "worker-build --release"

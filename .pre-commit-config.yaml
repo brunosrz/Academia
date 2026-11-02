@@ -1,0 +1,40 @@
+minimum_pre_commit_version: '4.7.0'
+default_stages: [pre-commit]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: check-added-large-files
+  - repo: local
+    hooks:
+      - id: prettier
+        name: Formatação web
+        entry: pnpm exec prettier --write
+        language: system
+        types_or: [javascript, jsx, ts, tsx, json, yaml, markdown, css]
+        exclude: ^(pnpm-lock\.yaml|Cargo\.lock)$
+      - id: vue-format
+        name: Formatação Vue
+        entry: pnpm exec prettier --write
+        language: system
+        files: \.vue$
+      - id: web-lint
+        name: ESLint web
+        entry: pnpm lint
+        language: system
+        pass_filenames: false
+        files: ^apps/(gestao|aluno)/
+      - id: rust-format
+        name: Rustfmt
+        entry: cargo fmt --manifest-path apps/api/Cargo.toml -- --check
+        language: system
+        pass_filenames: false
+        files: ^apps/api/.*\.rs$
