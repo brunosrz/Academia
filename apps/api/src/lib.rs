@@ -9,7 +9,9 @@ async fn fetch(req: Request, _env: Env, _ctx: Context) -> Result<Response> {
 }
 
 fn serde_health() -> std::collections::BTreeMap<&'static str, &'static str> {
-    [("app", "academia-api"), ("status", "ok")].into_iter().collect()
+    [("app", "academia-api"), ("status", "ok")]
+        .into_iter()
+        .collect()
 }
 
 #[cfg(test)]
